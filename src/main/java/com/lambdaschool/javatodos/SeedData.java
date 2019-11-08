@@ -1,4 +1,4 @@
-package com.lambdaschool.todo;
+package com.lambdaschool.javatodos;
 
 import com.lambdaschool.todo.models.Role;
 import com.lambdaschool.todo.models.Todo;
