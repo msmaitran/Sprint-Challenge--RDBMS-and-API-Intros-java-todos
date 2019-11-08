@@ -37,7 +37,7 @@ public class UserController {
 
     @PostMapping(value = "/user",
                  consumes = {"application/json"})
-    public ResponseEntity<?> addNewUser(@RequestBody User newUser) {
+    public ResponseEntity<?> addNewUser(@Valid @RequestBody User newUser) {
         newUser = userService.save(newUser);
 
         HttpHeaders responseHeaders = new HttpHeaders();

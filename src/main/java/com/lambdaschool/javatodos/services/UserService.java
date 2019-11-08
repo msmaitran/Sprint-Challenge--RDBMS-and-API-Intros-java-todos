@@ -11,8 +11,6 @@ public interface UserService {
 
     User findUserById(long id);
 
-    User add(User user);
-
     User save(User user);
 
     User addTodoToUser(Todo todo, long id);

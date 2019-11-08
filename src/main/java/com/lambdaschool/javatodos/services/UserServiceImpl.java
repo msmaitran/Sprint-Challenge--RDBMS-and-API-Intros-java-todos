@@ -40,8 +40,9 @@ public class UserServiceImpl implements UserService {
                 new EntityNotFoundException(Long.toString(id)));
     }
 
+    @Transactional
     @Override
-    public User add(User user) {
+    public User save(User user) {
         User newUser = new User();
 
         newUser.setUsername(user.getUsername());
@@ -58,12 +59,6 @@ public class UserServiceImpl implements UserService {
             newUser.getTodos().add(newTodo);
         }
         return userrepos.save(newUser);
-    }
-
-    @Transactional
-    @Override
-    public User save(User user) {
-        return userrepos.save(user);
     }
 
     @Override
