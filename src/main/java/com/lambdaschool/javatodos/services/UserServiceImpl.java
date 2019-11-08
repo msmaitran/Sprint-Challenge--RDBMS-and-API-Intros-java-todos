@@ -27,6 +27,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     TodoRepository todorepos;
 
+    @Autowired
+    UserService userService;
+
     @Override
     public List<User> findAll() {
         List<User> list = new ArrayList<>();
@@ -59,11 +62,6 @@ public class UserServiceImpl implements UserService {
             newUser.getTodos().add(newTodo);
         }
         return userrepos.save(newUser);
-    }
-
-    @Override
-    public User addTodoToUser(Todo todo, long id) {
-        return null;
     }
 
     @Transactional

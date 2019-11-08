@@ -13,7 +13,5 @@ public interface UserService {
 
     User save(User user);
 
-    User addTodoToUser(Todo todo, long id);
-
     void delete(long id);
 }

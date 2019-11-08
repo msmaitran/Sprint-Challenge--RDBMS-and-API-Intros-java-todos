@@ -17,6 +17,9 @@ public class TodoServiceImpl implements TodoService {
     @Autowired
     TodoRepository todorepos;
 
+    @Autowired
+    UserService userService;
+
     @Transactional
     @Override
     public List<Todo> findAll() {
@@ -41,5 +44,15 @@ public class TodoServiceImpl implements TodoService {
         currentTodo.setCompleted(todo.isCompleted());
 
         return todorepos.save(currentTodo);
+    }
+
+    @Override
+    public Todo save(Todo todo, long userid) {
+        Todo addTodo = new Todo();
+
+        addTodo.setDescription(todo.getDescription());
+        addTodo.setDatestarted(todo.getDatestarted());
+        addTodo.setUser(userService.findUserById(userid));
+        return todorepos.save(addTodo);
     }
 }

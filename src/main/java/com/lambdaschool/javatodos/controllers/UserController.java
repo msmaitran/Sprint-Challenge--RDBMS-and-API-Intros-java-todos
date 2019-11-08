@@ -2,6 +2,7 @@ package com.lambdaschool.javatodos.controllers;
 
 import com.lambdaschool.javatodos.models.Todo;
 import com.lambdaschool.javatodos.models.User;
+import com.lambdaschool.javatodos.services.TodoService;
 import com.lambdaschool.javatodos.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -20,6 +21,9 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    TodoService todoService;
 
     @GetMapping(value = "/users",
                 produces = {"application/json"})
@@ -54,20 +58,10 @@ public class UserController {
 
     @PostMapping(value = "/todo/{userid}",
                  consumes = {"application/json"})
-    public ResponseEntity<?> addTodoToUser(@RequestBody Todo todo,
+    public ResponseEntity<?> addTodoToUser(@RequestBody Todo addTodo,
                                            @PathVariable long userid) {
-        userService.addTodoToUser(todo, userid);
-
-//        HttpHeaders responseHeaders = new HttpHeaders();
-//        URI newTodoURI = ServletUriComponentsBuilder
-//                .fromCurrentRequest()
-//                .path("/{userid}")
-//                .buildAndExpand(userid)
-//                .toUri();
-//
-//        responseHeaders.setLocation(newTodoURI);
-
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        todoService.save(addTodo, userid);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/userid/{userid}")
