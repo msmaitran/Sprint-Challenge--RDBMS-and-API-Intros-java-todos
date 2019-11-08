@@ -1,10 +1,10 @@
 package com.lambdaschool.javatodos;
 
-import com.lambdaschool.todo.models.Role;
-import com.lambdaschool.todo.models.Todo;
-import com.lambdaschool.todo.models.User;
-import com.lambdaschool.todo.services.RoleService;
-import com.lambdaschool.todo.services.UserService;
+import com.lambdaschool.javatodos.models.Role;
+import com.lambdaschool.javatodos.models.Todo;
+import com.lambdaschool.javatodos.models.User;
+import com.lambdaschool.javatodos.services.RoleService;
+import com.lambdaschool.javatodos.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
