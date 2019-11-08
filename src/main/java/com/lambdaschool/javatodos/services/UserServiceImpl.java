@@ -66,8 +66,11 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    @Transactional
     @Override
     public void delete(long id) {
-
+        if (findUserById(id) != null) {
+            userrepos.deleteById(id);
+        }
     }
 }

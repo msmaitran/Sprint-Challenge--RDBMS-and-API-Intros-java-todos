@@ -58,16 +58,16 @@ public class UserController {
                                            @PathVariable long userid) {
         userService.addTodoToUser(todo, userid);
 
-        HttpHeaders responseHeaders = new HttpHeaders();
-        URI newTodoURI = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{userid}")
-                .buildAndExpand(userid)
-                .toUri();
+//        HttpHeaders responseHeaders = new HttpHeaders();
+//        URI newTodoURI = ServletUriComponentsBuilder
+//                .fromCurrentRequest()
+//                .path("/{userid}")
+//                .buildAndExpand(userid)
+//                .toUri();
+//
+//        responseHeaders.setLocation(newTodoURI);
 
-        responseHeaders.setLocation(newTodoURI);
-
-        return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping(value = "/userid/{userid}")
